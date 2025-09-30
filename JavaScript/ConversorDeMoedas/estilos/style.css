@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+
+/* cabeçalho */
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    
+}
+img#logo {
+    width: 80px;
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 20px;
+}
+
+/* corpo do site */
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(27, 27, 27);
+}
+section {
+    margin-top: 30px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.253);
+
+    background-color: rgb(167, 166, 166);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h2 {
+    font-size: 1em;
+    color: rgb(59, 59, 59);
+    margin-left: 20px;
+
+}
+
+select{
+    width: 450px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+div#resultado {
+    margin: auto;
+    border: 0px solid black;
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+img#BandeiraPaisDeOrigem, img#BnadeiraPaisAlvo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    
+}
+
+
+
+input {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+input#MoedaDeOrigem {
+    width: 450px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+input#button {
+    height: 35px;
+    width: 250px;
+    background-color: antiquewhite;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+input#button:hover {
+    background-color: rgb(245, 212, 170);
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
