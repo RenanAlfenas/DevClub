@@ -87,21 +87,24 @@ let valor = [
         pais: 'BRL',
         bandeira: 'imagens/brasil.jpg',
         nome: 'Real brasileiro',
-        moeda: 1.0,
+        moeda: 'R$',
+        ValorMoeda: 1,
     },
 
     {
         pais: 'EUA',
         bandeira: 'imagens/eua.png',
         nome: 'Dólar Americano',
-        moeda: 5.31,
+        moeda: '$',
+        ValorMoeda: 5.32,
     },
 
     {
         pais: 'EUR',
         bandeira: 'imagens/inglaterra.png',
         nome: 'Euro',
-        moeda: 6.23, 
+        moeda: '€', 
+        ValorMoeda: 6.25,
     }
 ]
 
@@ -112,7 +115,24 @@ let PaisAlvo = document.getElementById('PaisAlvo')
 
 let MoedaDeOrigem = document.getElementById('MoedaDeOrigem')
 
+let contador = 0
 
+let contadorAlvo = 0
+
+let MoedaDoPaisDeOrigem = document.getElementById('MoedaDoPaisDeOrigem')
+
+let div1 = document.getElementById('img1')
+
+let Valor1 = document.getElementById('Valor1')
+
+
+
+
+let MoedaDoPaisAlvo = document.getElementById('MoedaDoPaisAlvo')
+
+let div2 = document.getElementById('img2')
+
+let Valor2 = document.getElementById('Valor2')
 
 function clicar() {
     if (PaisDeOrigem.value == PaisAlvo.value) {
@@ -122,37 +142,63 @@ function clicar() {
     } else {
         let MoedaNova = Number(MoedaDeOrigem.value)
 
-        let contador = ""
-
-        /* RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO */
+        
+        /* RESOLVENDO A INSERÇÃO DA MOEDA DE ORIGEM */
 
 
         if (PaisDeOrigem.value == 'BRL') {
-            let contador = 0;
-
-            
+             contador = 0;
             
         } else if (PaisDeOrigem.value == 'EUA') {
-            let contador = 1;
-
-            
+             contador = 1;
 
         } else if (PaisDeOrigem.value == 'EUR') {
-            let contador = 2;
-            
+            contador = 2;
             
         }
 
 
-        alert(contador + 2)
+        let img1 = document.createElement('img')
+        img1.src = valor[contador].bandeira
+        img1.id = 'BandeiraPaisDeOrigem'
+        div1.appendChild(img1)
+
+        MoedaDoPaisDeOrigem.textContent = valor[contador].nome
+
+        Valor1.textContent = `${valor[contador].moeda} ${MoedaDeOrigem.value}`
+
+        /* RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO */
+
+        if (PaisAlvo.value == 'BRL') {
+             contadorAlvo = 0;
+            
+        } else if (PaisAlvo.value == 'EUA') {
+             contadorAlvo = 1;
+
+        } else if (PaisAlvo.value == 'EUR') {
+            contadorAlvo = 2;
+            
+        }
+
+        let img2 = document.createElement('img')
+        img2.src = valor[contadorAlvo].bandeira
+        img2.id = 'BnadeiraPaisAlvo'
+        div2.appendChild(img2)
+
+
+        MoedaDoPaisAlvo.textContent = valor[contadorAlvo].nome
+        
+        
+
+        let cont =(MoedaDeOrigem.value) / (valor[contadorAlvo].ValorMoeda)
+
+        Valor2.textContent = `${valor[contadorAlvo].moeda} ${cont.toFixed(2)}`
+    
 
         
 
         
-        
 
-        
-
-       
-    }
+    } 
+    
 }
