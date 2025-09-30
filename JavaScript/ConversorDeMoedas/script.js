@@ -1,3 +1,13 @@
+
+
+
+
+
+
+/*
+
+
+
 let PaisDeOrigem = document.getElementById('PaisDeOrigem')
 
 let PaisAlvo = document.getElementById('PaisAlvo')
@@ -67,5 +77,82 @@ function clicar() {
 
         
   
+    }
+}
+
+*/
+
+let valor = [
+    {
+        pais: 'BRL',
+        bandeira: 'imagens/brasil.jpg',
+        nome: 'Real brasileiro',
+        moeda: 1.0,
+    },
+
+    {
+        pais: 'EUA',
+        bandeira: 'imagens/eua.png',
+        nome: 'Dólar Americano',
+        moeda: 5.31,
+    },
+
+    {
+        pais: 'EUR',
+        bandeira: 'imagens/inglaterra.png',
+        nome: 'Euro',
+        moeda: 6.23, 
+    }
+]
+
+
+let PaisDeOrigem = document.getElementById('PaisDeOrigem')
+
+let PaisAlvo = document.getElementById('PaisAlvo')
+
+let MoedaDeOrigem = document.getElementById('MoedaDeOrigem')
+
+
+
+function clicar() {
+    if (PaisDeOrigem.value == PaisAlvo.value) {
+        alert('os paises precisam ser diferente')
+    } else if (MoedaDeOrigem.value == "") {
+        alert('digite um valor')
+    } else {
+        let MoedaNova = Number(MoedaDeOrigem.value)
+
+        let contador = ""
+
+        /* RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO */
+
+
+        if (PaisDeOrigem.value == 'BRL') {
+            let contador = 0;
+
+            
+            
+        } else if (PaisDeOrigem.value == 'EUA') {
+            let contador = 1;
+
+            
+
+        } else if (PaisDeOrigem.value == 'EUR') {
+            let contador = 2;
+            
+            
+        }
+
+
+        alert(contador + 2)
+
+        
+
+        
+        
+
+        
+
+       
     }
 }
