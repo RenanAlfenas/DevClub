@@ -54,7 +54,11 @@ select{
     height: 30px;
     margin-left: 20px;
     border-radius: 5px;
+    appearance: none;
+    padding-left: 10px;
+    
 }
+
 
 div#resultado {
     margin: auto;
@@ -85,10 +89,11 @@ input {
 }
 
 input#MoedaDeOrigem {
-    width: 450px;
+    width: 440px;
     height: 30px;
     margin-left: 20px;
     border-radius: 5px;
+    padding-left: 10px;
 }
 
 input#button {

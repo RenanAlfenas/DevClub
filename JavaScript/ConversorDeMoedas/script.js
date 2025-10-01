@@ -165,7 +165,10 @@ function clicar() {
 
         MoedaDoPaisDeOrigem.textContent = valor[contador].nome
 
-        Valor1.textContent = `${valor[contador].moeda} ${MoedaDeOrigem.value}`
+        Valor1.textContent =  new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(MoedaDeOrigem.value)              //`${valor[contador].moeda} ${MoedaDeOrigem.value}`
 
         /* RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO */
 
@@ -192,7 +195,10 @@ function clicar() {
 
         let cont =(MoedaDeOrigem.value) / (valor[contadorAlvo].ValorMoeda)
 
-        Valor2.textContent = `${valor[contadorAlvo].moeda} ${cont.toFixed(2)}`
+        Valor2.textContent = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        }).format( MoedaDeOrigem.value/valor[contadorAlvo].ValorMoeda) 
     
 
         
