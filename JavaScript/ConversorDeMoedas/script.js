@@ -1,87 +1,6 @@
 
 
-
-
-
-
-/*
-
-
-
-let PaisDeOrigem = document.getElementById('PaisDeOrigem')
-
-let PaisAlvo = document.getElementById('PaisAlvo')
-
-let MoedaDeOrigem = document.getElementById('MoedaDeOrigem')
-
-let MoedaDoPaisDeOrigem = document.getElementById('MoedaDoPaisDeOrigem')
-
-let MoedaDoPaisAlvo = document.getElementById('MoedaDoPaisAlvo')
-
-let Valor1 = document.getElementById('Valor1')
-
-let Valor2 = document.getElementById('Valor2')
-
-let div1 = document.getElementById('img1')
-
-let div2 = document.getElementById('img2')
-
-let div = document.getElementById('resultado')
-
-
-
-
-
-function clicar() {
-    let Moeda = Number(MoedaDeOrigem.value);
-
-    let img1 = document.createElement('img')
-    img1.id = "BandeiraPaisDeOrigem"
-
-    let img2 = document.createElement('img')
-    img2.id = "BnadeiraPaisAlvo"
-
-    if (Moeda == "") {
-        alert('Digite um valor para converter!')
-    } else if (PaisDeOrigem.value == PaisAlvo.value) {
-        alert('Os países precisam ser diferente')
-    } else if (PaisDeOrigem.value == 'BRL' && PaisAlvo.value == 'EUA') {
-        let divisao = Moeda / 5.32
-
-        let format = divisao.toFixed(2);
-
-        img1.src = "imagens/brasil.jpg"
-
-        div1.appendChild(img1)
-
-        MoedaDoPaisDeOrigem.textContent = 'Real brasileiro'
-
-        Valor1.textContent = `R$ ${MoedaDeOrigem.value}`
-
-
-
-
-
-        img2.src = "imagens/eua.png"
-
-        div2.appendChild(img2)
-
-        MoedaDoPaisAlvo.textContent = 'Dólar Americano'
-
-        Valor2.textContent = `$ ${format}`
-
-        MoedaDeOrigem.value = ""
-
-        div.style.border = '2px solid black'
-        
-
-        
-  
-    }
-}
-
-*/
-
+// variáveis do array
 let valor = [
     {
         pais: 'BRL',
@@ -105,9 +24,18 @@ let valor = [
         nome: 'Euro',
         moeda: '€', 
         ValorMoeda: 6.25,
+    },
+
+    {
+        pais: 'JPY',
+        bandeira: 'imagens/japao.jpg',
+        nome: 'iene',
+        moeda: '¥',
+        ValorMoeda: 0.036,
     }
 ]
 
+// variávies globais (chamando elementos do HTML)
 
 let PaisDeOrigem = document.getElementById('PaisDeOrigem')
 
@@ -125,16 +53,19 @@ let div1 = document.getElementById('img1')
 
 let Valor1 = document.getElementById('Valor1')
 
-
-
-
 let MoedaDoPaisAlvo = document.getElementById('MoedaDoPaisAlvo')
 
 let div2 = document.getElementById('img2')
 
 let Valor2 = document.getElementById('Valor2')
 
+
+// função clicar
+
 function clicar() {
+
+    // checando se os paises são diferentes e se o valor de conversão foi digitado
+
     if (PaisDeOrigem.value == PaisAlvo.value) {
         alert('os paises precisam ser diferente')
     } else if (MoedaDeOrigem.value == "") {
@@ -143,9 +74,9 @@ function clicar() {
         let MoedaNova = Number(MoedaDeOrigem.value)
 
         
-        /* RESOLVENDO A INSERÇÃO DA MOEDA DE ORIGEM */
+/* ----------------------- RESOLVENDO A INSERÇÃO DA MOEDA DE ORIGEM -------------------------------- */
 
-
+            // contador para ajudar a pesquisar as variavies no meu array
         if (PaisDeOrigem.value == 'BRL') {
              contador = 0;
             
@@ -155,23 +86,55 @@ function clicar() {
         } else if (PaisDeOrigem.value == 'EUR') {
             contador = 2;
             
+        } else if (PaisDeOrigem.value == 'JPY') {
+            contador = 3;
         }
 
+            // criação dinamica da imagem da moeda de origem
+      
+        let img1 = document.getElementById('BandeiraPaisDeOrigem')
 
-        let img1 = document.createElement('img')
-        img1.src = valor[contador].bandeira
-        img1.id = 'BandeiraPaisDeOrigem'
-        div1.appendChild(img1)
+            if (div1.innerHTML === '') {
+        
+            let img1 = document.createElement('img')
+            img1.src = valor[contador].bandeira
+            img1.id = 'BandeiraPaisDeOrigem'
+            div1.appendChild(img1)
+            } else {
+                img1.src = valor[contador].bandeira
+            
+            }
 
-        MoedaDoPaisDeOrigem.textContent = valor[contador].nome
+        MoedaDoPaisDeOrigem.textContent = valor[contador].nome  // criação dinamica do nome da moeda
 
-        Valor1.textContent =  new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        }).format(MoedaDeOrigem.value)              //`${valor[contador].moeda} ${MoedaDeOrigem.value}`
+            // criação dinamica do valor da moeda formatada para real
+                    if (PaisDeOrigem.value == 'BRL') {
+                    Valor1.textContent =  new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                    }).format(MoedaDeOrigem.value)    // formatação para real
 
-        /* RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO */
+                    } else if (PaisDeOrigem.value == 'EUA') {
+                    Valor1.textContent =  new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                    }).format(MoedaDeOrigem.value)    // formatação para dólar
 
+                    } else if (PaisDeOrigem.value == 'EUR') {
+                        Valor1.textContent =  new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'EUR',
+                    }).format(MoedaDeOrigem.value)     // formatação para euro
+
+                    } else if (PaisDeOrigem.value == 'JPY') {
+                        Valor1.textContent =  new Intl.NumberFormat('ja-JP', {
+                        style: 'currency',
+                        currency: 'JPY',
+                    }).format(MoedaDeOrigem.value)     // formatação para iene
+                    }
+/* ----------------------- RESOLVENDO A INSERÇÃO DA MOEDA DE CONVERSÃO ------------------------------------- */
+
+            // contador para ajudar a pesquisar as variavies no meu array
         if (PaisAlvo.value == 'BRL') {
              contadorAlvo = 0;
             
@@ -181,28 +144,56 @@ function clicar() {
         } else if (PaisAlvo.value == 'EUR') {
             contadorAlvo = 2;
             
+        } else if (PaisAlvo.value == 'JPY') {
+            contadorAlvo = 3;
         }
 
-        let img2 = document.createElement('img')
-        img2.src = valor[contadorAlvo].bandeira
-        img2.id = 'BnadeiraPaisAlvo'
-        div2.appendChild(img2)
+            // criação dinamica da imagem da moeda de convertida
+
+        let img2 = document.getElementById('BnadeiraPaisAlvo')
+
+                    if (div2.innerHTML === '') {
+                    let img2 = document.createElement('img')
+                    img2.src = valor[contadorAlvo].bandeira
+                    img2.id = 'BnadeiraPaisAlvo'
+                    div2.appendChild(img2)
+                    } else {
+                        img2.src = valor[contadorAlvo].bandeira
+                    }
 
 
-        MoedaDoPaisAlvo.textContent = valor[contadorAlvo].nome
+        MoedaDoPaisAlvo.textContent = valor[contadorAlvo].nome  // criação dinamica do nome da moeda convertida
         
-        
+         // criação dinamica do valor da moeda convertida formatada para a moeda selecionada
 
-        let cont =(MoedaDeOrigem.value) / (valor[contadorAlvo].ValorMoeda)
 
-        Valor2.textContent = new Intl.NumberFormat('en-US', {
+        if (PaisAlvo.value == 'EUA'){
+        Valor2.textContent =  new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-        }).format( MoedaDeOrigem.value/valor[contadorAlvo].ValorMoeda) 
-    
+        }).format( MoedaDeOrigem.value*(valor[contador].ValorMoeda/valor[contadorAlvo].ValorMoeda))  // formatação para dólar
+
+        } else if (PaisAlvo.value == 'EUR') {
+            Valor2.textContent =  new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'EUR',
+        }).format( MoedaDeOrigem.value*(valor[contador].ValorMoeda/valor[contadorAlvo].ValorMoeda)) // formatação para euro
+
+        } else if (PaisAlvo.value == 'JPY') {
+            Valor2.textContent =  new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY',
+        }).format( MoedaDeOrigem.value*(valor[contador].ValorMoeda/valor[contadorAlvo].ValorMoeda)) // formatação para iene
+
+        } else if (PaisAlvo.value == 'BRL') {
+            Valor2.textContent =  new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format( MoedaDeOrigem.value*(valor[contador].ValorMoeda/valor[contadorAlvo].ValorMoeda)) // formatação para real
+        }
 
         
-
+        
         
 
     } 
