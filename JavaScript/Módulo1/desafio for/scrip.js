@@ -6,32 +6,28 @@ Todos os produtos a cima de R$ 30,00 tem desconto de 10%
 
 */
 
-let cart = [
-    { valor: 80 },
-    { valor: 20 },
-    { valor: 10 },
-   
-]
+
+let cart = [10,20,40,80,100,30]
 
 let valorInicial = 0
 
-function MeuDesconto(preco,desconto) {     // essa função serve para calcular o desconto dos itens e retornar o valor a variável desc.
-    let desc = (preco*desconto)/100
-    return desc
+function ValoComDesconto(price,desconto) {
+    let novoValor = (price*desconto)/100
+    return novoValor
 }
 
-cart.forEach(itens => {
-    
-    if (itens.valor > 30) {
-        valorInicial = valorInicial + (itens.valor - MeuDesconto(itens.valor,10))  // essa linha serve para somar os valores que tem desconto 
+cart.forEach((itens) => {
+    if (itens >= 30) {
+        valorInicial += itens -ValoComDesconto(itens,10)
     } else {
-        valorInicial += itens.valor   // essa linha serve para somar os valores que não tem  desconto e ai soma todos os valores do meu array
+        valorInicial += itens
     }
 
 });
 
-
 console.log(valorInicial)
+
+
 
 
 
