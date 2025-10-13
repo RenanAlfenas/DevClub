@@ -1,30 +1,94 @@
-const rock = 1
-const paper = 2
-const scissors = 3
+
+/* variáveis do meu HTML*/
+
+let rock = document.getElementById('rock')
+
+let paper = document.getElementById('paper')
+
+let scissors = document.getElementById('scissors')
+
+let resp = document.getElementById('resposta')
+
+let MeuPonto = document.getElementById('MeuPonto')
+
+let PontoMaquina = document.getElementById('PontoMáquina')
+
+const RockNUm = 1
+const PaperNum = 2
+const ScissorsNum = 3
 
 const max = 0;
 const min = 4;
 
-const num = Math.floor(Math.random()*(max - min + 1)) + min;
 
-let MyNumber = 3
+let MyNumber
+
+let pontomaq = 0
+
+let meuponto = 0
 
 
-if (MyNumber == num) {
-    console.log('empate')
-} else if (MyNumber == rock && num == paper) {
-    console.log(' você escolheu pedra e máquina papel. a maquina ganhou')
-}  else if (MyNumber == rock && num == scissors) {
-    console.log('você escolheu pedra e a máquina tesoura. você ganhou')
-}  else if (MyNumber == paper && num == rock) {
-    console.log('você escolheu papel e a máquina pedra. você ganhou')
-}  else if (MyNumber == paper && num == scissors) {
-    console.log('você escolheu papel e a máquina tesoura. a maquina ganhou')
-}  else if (MyNumber == scissors && num == paper) {
-    console.log('você escolheu tesoura e a máquina papel. você ganhou')
-}  else if (MyNumber == scissors && num == rock) {
-    console.log('você escolheu tesoura e a máuina pedra. a maquina ganhou')
+
+
+rock.addEventListener("click",function() {
+     MyNumber = 1
+     const num = Math.floor(Math.random()*(max - min + 1)) + min;
+
+     if (num == RockNUm) {
+    resp.innerText = 'empate'
+} else if (num == PaperNum) {
+    resp.innerText =  ' você escolheu pedra e máquina papel. a maquina ganhou'
+    PontoMaquina.innerText = pontomaq+=1
+    
+}  else if (num == ScissorsNum) {
+    resp.innerText = 'você escolheu pedra e a máquina tesoura. você ganhou'
+    MeuPonto.innerHTML = meuponto+=1
+    
 }
+    
+    
+
+})
+
+
+paper.addEventListener("click",function() {
+     MyNumber = 2
+     const num = Math.floor(Math.random()*(max - min + 1)) + min;
+
+     if (num == PaperNum) {
+    resp.innerText = 'empate'
+} else if (num == RockNUm) {
+    resp.innerText = 'você escolheu papel e a máquina pedra. você ganhou'
+    MeuPonto.innerHTML = meuponto+=1
+    
+} else if (num == ScissorsNum) {
+    resp.innerText = 'você escolheu papel e a máquina tesoura. a maquina ganhou'
+    PontoMaquina.innerText = pontomaq+=1
+    
+    
+}
+
+})
+
+scissors.addEventListener("click",function() {
+    MyNumber = 3
+    const num = Math.floor(Math.random()*(max - min + 1)) + min;
+    
+    if ( num == ScissorsNum) {
+    resp.innerText = 'empate'
+} else if (num == PaperNum) {
+    resp.innerText =  ' você escolheu tesoura e máquina papel. a você ganhou'
+    MeuPonto.innerText = meuponto+=1 
+    
+}  else if (num == RockNUm) {
+    resp.innerText = 'você escolheu tesoura e a máquina pedra. a máquina ganhou'
+    PontoMaquina.innerHTML = pontomaq+=1
+    
+} 
+   
+})
+
+
 
 
 
