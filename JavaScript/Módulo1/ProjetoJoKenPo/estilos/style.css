@@ -15,7 +15,7 @@ body {
 
 section {
     background-color: azure;
-    width: 300px;
+    width: 350px;
     margin: auto;
     height: 300px;
     padding: 20px;
@@ -28,13 +28,12 @@ section {
 div#emojis {
     display: flex;
     padding: 30px;
-    font-size: 2em;
+    font-size: 3em;
     
 }
 
 div#rock, div#paper, div#scissors {
     background-color: rgba(0, 0, 0, 0.315);
-    margin: 10px;
     padding: 5px;
     border-radius: 5px;
     margin: auto;
@@ -44,22 +43,22 @@ div#rock, div#paper, div#scissors {
 
 
 div#scissors:hover {
-     background-color: rgba(0, 0, 0, 0.116);
+     background-color: rgba(250, 130, 10, 0.336);
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.171);
 }
 
 div#paper:hover {
-     background-color: rgba(0, 0, 0, 0.116);
+     background-color: rgba(245, 244, 244, 0.116);
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.171);
 }
 
 div#rock:hover {
-     background-color: rgba(0, 0, 0, 0.116);
+     background-color: rgba(36, 0, 238, 0.39);
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.171);
 }
 
 
-p#MinhaPontuação, p#PontuaçãoMáquina {
+p#MinhaPontuação, p#PontuaçãoMaquina {
     margin-top: 10px;
 }
 
@@ -74,7 +73,7 @@ span#MeuPonto {
 
 }
 
-span#PontoMáquina {
+span#PontoMaquina {
     color: rgb(224, 107, 39);
     font-weight: bold;
 }

@@ -77,7 +77,7 @@ scissors.addEventListener("click",function() {
     if ( num == ScissorsNum) {
     resp.innerText = 'empate'
 } else if (num == PaperNum) {
-    resp.innerText =  ' você escolheu tesoura e máquina papel. a você ganhou'
+    resp.innerText =  ' você escolheu tesoura e máquina papel. você ganhou'
     MeuPonto.innerText = meuponto+=1 
     
 }  else if (num == RockNUm) {
