@@ -2,8 +2,13 @@ let MeuArray = [
     {number: 12},
     {number: 2},
     {number: 4},
-]
+    {number: 5},
+    {number: 6},
+    {number: 7},
+    {number: 8},
+    {number: 49},
+];
 
-let checking = MeuArray.every(user => user.number > 0 && user.number < 50)
+MeuArray.splice(1,5)
 
-console.log(checking)
+console.log(MeuArray)
