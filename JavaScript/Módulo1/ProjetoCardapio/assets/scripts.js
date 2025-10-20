@@ -16,8 +16,12 @@ function MostrarTudo() {
         div.appendChild(h1);
 
         let p = document.createElement('p')
+        p.classList.add('element')
         p.innerHTML = `R$ ${item.price},00`
         div.appendChild(p);
+
+        return p
+      
    
     });
 } else {
@@ -27,28 +31,14 @@ function MostrarTudo() {
 
 
 function desconto() {
-    const desc = menuOptions.map (newPrice => newPrice = newPrice.price - (newPrice.price/10))
-            menuOptions.forEach(item => {
+            menuOptions.map ((NewPrice,index) => {
 
-                let c = 0
-                c++
+               const novoPreco = NewPrice.price - (NewPrice.price/10)
 
-        let div = document.createElement('div')
-        div.id = `${item.name}`
-        section.appendChild(div);
-        
-        let img = document.createElement('img')
-        img.src = `${item.src}`
-        div.appendChild(img);
+                    let p = document.querySelectorAll('.element')
 
-        let h1 = document.createElement('h1')
-        h1.innerText = item.name
-        div.appendChild(h1);
-
-        let p = document.createElement('p')
-        p.innerHTML = desc[c]
-        div.appendChild(p);
-   
-    });
+                    p[index].textContent = `R$ ${novoPreco.toFixed(2).replace('.',',')}`;
+        } 
+) 
 
 }
