@@ -17,10 +17,10 @@ function MostrarTudo() {
 
         let p = document.createElement('p')
         p.classList.add('element')
-        p.innerHTML = `R$ ${item.price},00`
+        p.innerHTML = item.price
         div.appendChild(p);
 
-        return p
+        
       
    
     });
@@ -37,7 +37,8 @@ function desconto() {
 
                     let p = document.querySelectorAll('.element')
 
-                    p[index].textContent = `R$ ${novoPreco.toFixed(2).replace('.',',')}`;
+                    p[index].textContent = novoPreco;
+
         } 
 ) 
 
