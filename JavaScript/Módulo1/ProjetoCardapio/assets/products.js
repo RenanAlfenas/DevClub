@@ -16,6 +16,7 @@ const menuOptions = [
 
 
 let section = document.getElementById('products')
+let descontoAtivo = false;
 
 
 

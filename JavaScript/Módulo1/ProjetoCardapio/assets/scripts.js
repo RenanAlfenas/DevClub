@@ -1,5 +1,5 @@
 function MostrarTudo() {
-
+        descontoAtivo = false;
         section.innerHTML = ""
 
 
@@ -30,38 +30,44 @@ function MostrarTudo() {
 
 
 function desconto() {
+        descontoAtivo = true;
         section.innerHTML = ""
 
-                menuOptions.map ((NewPrice) => {
+            menuOptions.map ((NewPrice) => {
 
-                    let novoPreco = NewPrice.price - (NewPrice.price/10)
+            let novoPreco = NewPrice.price - (NewPrice.price/10)
 
-                    let div = document.createElement('div')
-                        div.id = `${NewPrice.name}`
-                        section.appendChild(div);
+            let div = document.createElement('div')
+                div.id = `${NewPrice.name}`
+                section.appendChild(div);
+        
+            let img = document.createElement('img')
+                img.src = `${NewPrice.src}`
+                div.appendChild(img);
+
+            let h1 = document.createElement('h1')
+                h1.innerText = NewPrice.name
+                div.appendChild(h1);
+
+            let p = document.createElement('p')
+                p.classList.add('element')
+                p.innerHTML = `R$ ${novoPreco.toFixed(2).replace('.',',')}`
+                div.appendChild(p);
                 
-                    let img = document.createElement('img')
-                        img.src = `${NewPrice.src}`
-                        div.appendChild(img);
+        } 
+)
 
-                    let h1 = document.createElement('h1')
-                        h1.innerText = NewPrice.name
-                        div.appendChild(h1);
-
-                    let p = document.createElement('p')
-                        p.classList.add('element')
-                        p.innerHTML = `R$ ${novoPreco.toFixed(2).replace('.',',')}`
-                        div.appendChild(p);
-
-                } 
-) 
 
 }
 
 function sum() {
-
+    
     let soma = menuOptions.reduce((acum,item) => {
-        return acum + item.price
+        if(descontoAtivo) {
+        return acum + (item.price - item.price / 10)
+        } else {
+            return acum + item.price
+        }
     },0)
 
     
