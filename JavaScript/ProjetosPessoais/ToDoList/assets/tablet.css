@@ -43,13 +43,14 @@ input#text {
 
 button#add {
     border-radius: 5px;
-    width: 70px;
+    width: 75px;
     font-size: 0.8em;
     font-weight: bold;
     background-color: rgb(240, 159, 38);
     border: none;
     cursor: pointer;
     transition: 0.5s;
+    color: black;
 }
 
 button#add:hover {
@@ -71,6 +72,7 @@ ul {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    text-align: center;
 }
 
 li {
