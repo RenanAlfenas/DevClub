@@ -1,4 +1,7 @@
-body {
+@charset "UTF-8";
+
+@media screen and (max-width: 750px) {
+    body {
     margin: 0px;
     padding: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -7,14 +10,13 @@ body {
 }
 div#header {
     margin: auto;
-
-    width: 500px;
+    width: 300px;
 }
 h1 {
     width: 200px;
     margin-top: 30px;
     font-family: cursive;
-    font-size: 2.5em;
+    font-size: 1.5em;
 
 }
 
@@ -28,7 +30,7 @@ div#task-add {
 }
 
 input#text {
-    width: 400px;
+    width: 200px;
     height: 30px;
     text-align: center;
     font-size: 1em;
@@ -41,8 +43,8 @@ input#text {
 
 button#add {
     border-radius: 5px;
-    width: 100px;
-    font-size: 1.1em;
+    width: 70px;
+    font-size: 0.8em;
     font-weight: bold;
     background-color: rgb(240, 159, 38);
     border: none;
@@ -58,7 +60,7 @@ button#add:hover {
 }
 
 div#task-list {
-    width: 700px;
+    width: 350px;
     margin: auto;
     margin-top: 40px;
     padding: 0px;
@@ -66,42 +68,35 @@ div#task-list {
 
 ul {
     list-style: none;
-    padding: 0px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 }
 
-p {
-
-    width: 400px;
-    flex-wrap: wrap;
-    overflow-wrap: break-word
-}
-
-span {
-    flex-wrap: nowrap;
-    width: 400px;
-}
-
-
 li {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
     justify-content: space-between;
     width: 100%;
 
-    font-size: 1em;
+    font-size: 0.8em;
     color: rgb(247, 145, 29);
     font-weight: bold;
     font-style: italic;
 }
 
+
+p {
+    width: 300px;
+    flex-wrap: wrap;
+    overflow-wrap: break-word
+}
+
 button.completButton {
     border: none;
-    width: 80px;
+    width: 70px;
     height: 30px;
     border-radius: 5px;
     background-color: rgb(1, 189, 48);
@@ -111,11 +106,12 @@ button.completButton {
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
     margin-left: 10px;
     cursor: pointer;
+    font-size: 0.7em;
 }
 
 button.delet {
     border: none;
-    width: 80px;
+    width: 70px;
     height: 30px;
     border-radius: 5px;
     background-color: rgb(240, 38, 38);
@@ -125,11 +121,12 @@ button.delet {
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
     margin-left: 10px;
     cursor: pointer;
+    font-size: 0.7em;
 }
 
 button.edit {
     border: none;
-    width: 80px;
+    width: 70px;
     height: 30px;
     border-radius: 5px;
     background-color: rgb(240, 159, 38);
@@ -139,10 +136,11 @@ button.edit {
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.568);
     margin-left: 10px;
     cursor: pointer;
+    font-size: 0.7em;
 }
 
 .complet {
     color: grey;
     text-decoration: line-through;
 }
-
+}
