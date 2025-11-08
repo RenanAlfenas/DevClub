@@ -45,6 +45,8 @@ select#list {
     transition: 0.5s;
     background-color: rgb(229, 229, 230);
     font-weight: bold;
+    outline: none;
+    border: none;
 
 }
 
@@ -67,11 +69,13 @@ div#tasks {
 
 }
 
-P {
+li {
     display: flex;
+    flex-direction: row;
     width: 700px;
     padding: 10px;
     justify-content: space-between;
+    
 }
 
 button {

@@ -1,21 +1,23 @@
 const text = document.getElementById('text')
 const divTask = document.getElementById('tasks')
 const add = document.getElementById('add')
+const ul = document.getElementById('unorderList')
 
 
 function addButton() {
 
-    divTask.innerHTML += `
-        <p>
-            ${text.value}
+    ul.innerHTML += `
+   
+            <li>
+            <p>${text.value}</p>
             
             <span>
                 <button class="complete" onclick = 'complete(this)'>concluida</button>
                 <button class="edit" onclick = 'edit(this)'>editar</button>
-                <button class="delet">excluir</button>
+                <button class="delet" onclick = 'delet(this)'>excluir</button>
             </span>
-        
-        </p>
+            </li>
+  
     `
 
     text.value = ""
@@ -28,10 +30,16 @@ text.addEventListener('keypress',function(event) {
 })
 
 function complete(button) {
-    button.closest('p').classList.toggle('completedTask')
+    button.closest('li').classList.toggle('completedTask')
 }
 
 function edit(button) {
     let textEdited = prompt('edite seu texto')
-    button.closest('p').text.value.innerHTML = textEdited
+    if(textEdited != null) {
+    button.closest('li').querySelector('p').innerHTML = textEdited
+    }
+}
+
+function delet(button) {
+    button.closest('li').remove()
 }
