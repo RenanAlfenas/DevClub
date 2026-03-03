@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            cursor: pointer;
+            transition: 1s;
+            outline: none;
+            
+        }
+
+        button:hover {
+            background-color: rgb(223, 223, 223);
+            box-shadow: 2px 3px 30px rgba(0, 0, 0, 0.288);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mude a cor de fundo da página com o código de cores indicado</h1>
+
+    <p>
+        selecione a cor e clique no botão: 
+        <select name="colorList" id="colorList">
+            <option value="blue">azul</option>
+            <option value="yellow">amarelo</option>
+            <option value="pink">rosa</option>
+            <option value="green">verde</option>
+            <option value="purple">roxo</option>
+            <option value="orange">laranja</option>
+            <option value="red">vermelho</option>
+        </select>
+
+        <button>mudar cor</button>
+    </p>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

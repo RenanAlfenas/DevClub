@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cronometro</title>
+    <style>
+        input{
+            text-align: center;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" name="txtCron" id="txtCron" value="00:00:00">
+    <button id="start_button">Start</button>
+    <button id="pause_button">Pause</button>
+    <button id="restart_button">Restart</button>
+
+    <p>00:00:00</p>
+
+    <script>
+
+        let txt_cron = document.getElementById('txtCron')
+        let start_button = document.getElementById('start_button')
+        let pause_button = document.getElementById('pause_button')
+        let restart_button = document.getElementById('restart_button')
+        let p = document.querySelector('p')
+        let interval = null
+        let time = 0
+
+        start_button.addEventListener('click', function(){
+
+            
+            function temp(tempo) {
+            let [horas,minutos,segundos] = tempo.split(':').map(Number)
+            return (horas*3600) + (minutos*60) + segundos;
+            }
+
+            let tempoRegressiva = temp(txt_cron.value)
+
+            setInterval((interval) => {
+                time = tempoRegressiva--
+            
+            let h = Math.floor(time/3600).toString().padStart(2, '0')
+            let m = Math.floor((time%3600)/60).toString().padStart(2, '0')
+            let s = Math.floor(time%60).toString().padStart(2, '0')
+                p.innerHTML = `${h}:${m}:${s}`
+            }, 1000);
+
+      
+            
+            
+        })
+
+        restart_button.addEventListener('click', function(){
+          clearInterval(interval)
+          p.innerHTML = "00:00:00"
+          txt_cron.innerHTML = "00:00:00"
+          time = 0  
+          interval = null
+        })
+
+        
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
